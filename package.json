@@ -1,0 +1,29 @@
+{
+  "name": "crawler",
+  "version": "0.0.1",
+  "description": "Fliper challenge: NodeJS crawler.",
+  "main": "src/index.js",
+  "scripts": {
+    "build": "babel src --out-dir dist",
+    "start": "nodemon src/index.js --exec babel-node",
+    "serve": "node -r dotenv/config dist/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Henrique Silverio",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:HenriqueSilverio/crawler.git"
+  },
+  "dependencies": {
+    "dotenv": "^6.0.0",
+    "puppeteer": "^1.9.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.1.2",
+    "@babel/core": "^7.1.2",
+    "@babel/node": "^7.0.0",
+    "@babel/preset-env": "^7.1.0",
+    "nodemon": "^1.18.4"
+  }
+}
