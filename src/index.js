@@ -1,8 +1,11 @@
 import 'dotenv/config'
+import fs from 'fs'
+import util from 'util'
 import path from 'path'
 import Puppeteer from 'puppeteer'
 
 (async () => {
+  const writeFile = util.promisify(fs.writeFile)
   const loginUrl  = process.env.LOGIN_URL
   const loginUser = process.env.USERNAME
   const loginPass = process.env.PASSWORD
@@ -54,10 +57,29 @@ import Puppeteer from 'puppeteer'
       return acc.concat([].slice.call(curr.querySelectorAll(':scope > div')))
     }, [])
 
-    return rows.length
+    const subtitles = rows.map(item => {
+      const selectorTitle = ':scope > div:nth-child(2) > p:nth-child(1) > a:nth-child(1)'
+      const elementTitle  = item.querySelector(selectorTitle)
+
+      return {
+        name: elementTitle.innerHTML,
+        link: elementTitle.href,
+        lang: item.querySelector(':scope > img:nth-child(3)').src,
+      }
+    })
+
+    return subtitles
   })
 
-  console.log(`Found ${results} rows!`)
+  console.log(`Found ${results.length} rows!`)
+
+  console.log('Exporting data ...')
+
+  const filePath = path.resolve(__dirname, 'data/subtitles.json')
+
+  await writeFile(filePath, JSON.stringify(results))
+
+  console.log('Export completed!')
 
   console.log('Taking screenshot ...')
 
