@@ -6,7 +6,7 @@
   "scripts": {
     "build": "babel src --out-dir dist",
     "start": "nodemon src/index.js --exec babel-node",
-    "serve": "node -r dotenv/config dist/index.js",
+    "serve": "node dist/index.js -r dotenv/config",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Henrique Silverio",
@@ -16,6 +16,7 @@
     "url": "git@github.com:HenriqueSilverio/crawler.git"
   },
   "dependencies": {
+    "@babel/polyfill": "^7.0.0",
     "dotenv": "^6.0.0",
     "puppeteer": "^1.9.0"
   },
