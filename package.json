@@ -16,15 +16,15 @@
     "url": "git@github.com:HenriqueSilverio/crawler.git"
   },
   "dependencies": {
-    "@babel/polyfill": "^7.0.0",
-    "dotenv": "^6.0.0",
-    "puppeteer": "^1.9.0"
+    "@babel/polyfill": "^7.10.1",
+    "dotenv": "^8.2.0",
+    "puppeteer": "^1.20.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.1.2",
-    "@babel/core": "^7.1.2",
-    "@babel/node": "^7.0.0",
-    "@babel/preset-env": "^7.1.0",
-    "nodemon": "^1.18.4"
+    "@babel/cli": "^7.10.1",
+    "@babel/core": "^7.10.2",
+    "@babel/node": "^7.10.1",
+    "@babel/preset-env": "^7.10.2",
+    "nodemon": "^2.0.4"
   }
 }
